@@ -56,6 +56,37 @@ void mergeSort(int pData[], int l, int r)
 		
 		for (int y = 0; y < rSize; y++)
 			rArray[y] = pData[mid+1 + y];
+
+		// put data from temp arrays back into array
+		int m = 0, n = 0; // indexes for temp arrays
+		for (int p = l; p < r+1; p++) {
+			
+			// if we've already run out of entries in rArray but lArray still has some left
+			if (n >= rSize && m < lSize) {
+				pData[p] = lArray[m];
+				m++;
+			}
+			// vice versa
+			else if (m >= lSize && n < rSize) {
+				pData[p] = rArray[n];
+				n++;
+			}
+			// otherwise, compare the two and determine which to put first
+			else {
+
+				if (lArray[m] <= rArray[n]) {
+					pData[p] = lArray[m];
+					m++;
+				}
+				else {
+					pData[p] = rArray[n];
+					n++;
+				}
+			}
+		}
+
+		DeAlloc(lArray);
+		DeAlloc(rArray);
  	}
 }
 
