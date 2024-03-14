@@ -47,8 +47,8 @@ void mergeSort(int pData[], int l, int r)
 		int rSize = r - mid;
 
 		// temp arrays
-		int* lArray = (int*)Alloc(lSize);
-		int* rArray = (int*)Alloc(rSize);
+		int* lArray = (int*)Alloc(lSize*sizeof(int));
+		int* rArray = (int*)Alloc(rSize*sizeof(int));
 
 		// populate temp arrays
 		for (int x = 0; x < lSize; x++)
