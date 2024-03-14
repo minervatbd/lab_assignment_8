@@ -83,7 +83,11 @@ void mergeSort(int pData[], int l, int r)
 					n++;
 				}
 			}
+			//printf("%d\n",pData[p]);
 		}
+		//printf("\n\n");
+		//for (int i = 0; i < r; i++) printf("%d\n",pData[i]);
+		//printf("\n\n");
 
 		DeAlloc(lArray);
 		DeAlloc(rArray);
