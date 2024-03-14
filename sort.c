@@ -31,7 +31,32 @@ size_t Size(void* ptr)
 // extraMemoryAllocated counts bytes of extra memory allocated
 void mergeSort(int pData[], int l, int r)
 {
-	
+	// terminating condition
+	if (l >= r) return;
+	else {
+
+		int mid = (l+r)/2; // midpoint
+
+		// recursive call;
+		mergeSort(pData, l, mid);
+		mergeSort(pData, mid+1, r);
+
+		// now we need to actually merge things
+		// lengths of temp arrays
+		int lSize = mid - l + 1;
+		int rSize = r - mid;
+
+		// temp arrays
+		int* lArray = (int*)Alloc(lSize);
+		int* rArray = (int*)Alloc(rSize);
+
+		// populate temp arrays
+		for (int x = 0; x < lSize; x++)
+			lArray[x] = pData[l + x];
+		
+		for (int y = 0; y < rSize; y++)
+			rArray[y] = pData[mid+1 + y];
+ 	}
 }
 
 // parses input file to an integer array
